@@ -1,6 +1,6 @@
-package gigi.exe.rotina;
+package exe.gigi.rotina;
 
-import gigi.exe.dao.ProcessoDao;
+import exe.gigi.dao.ProcessoDao;
 
 import java.util.TimerTask;
 

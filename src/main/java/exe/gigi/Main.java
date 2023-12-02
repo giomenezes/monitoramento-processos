@@ -1,9 +1,8 @@
-package gigi.exe;
+package exe.gigi;
 
-import gigi.exe.maquina.Servidor;
-import gigi.exe.menu.Menu;
-import gigi.exe.rotina.Agendador;
-import gigi.exe.rotina.SalvarProcessos;
+import exe.gigi.rotina.SalvarProcessos;
+import exe.gigi.menu.Menu;
+import exe.gigi.rotina.Agendador;
 
 public class Main {
     public static void main(String[] args) {

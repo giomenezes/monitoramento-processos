@@ -1,7 +1,7 @@
-package gigi.exe.dao;
+package exe.gigi.dao;
 
-import gigi.exe.conexao.Database;
-import gigi.exe.maquina.Servidor;
+import exe.gigi.conexao.Database;
+import exe.gigi.maquina.Servidor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 

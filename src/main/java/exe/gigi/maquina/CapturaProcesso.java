@@ -1,4 +1,4 @@
-package gigi.exe.maquina;
+package exe.gigi.maquina;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.processos.Processo;

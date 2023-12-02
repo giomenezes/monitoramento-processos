@@ -1,4 +1,4 @@
-package gigi.exe.rotina;
+package exe.gigi.rotina;
 
 import java.util.Timer;
 import java.util.TimerTask;

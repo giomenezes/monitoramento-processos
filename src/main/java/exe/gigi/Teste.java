@@ -1,11 +1,7 @@
-package gigi.exe;
+package exe.gigi;
 
-import com.github.britooo.looca.api.group.processos.Processo;
-import gigi.exe.dao.ProcessoDao;
-import gigi.exe.maquina.CapturaProcesso;
-import gigi.exe.menu.Output;
-
-import java.util.List;
+import exe.gigi.maquina.CapturaProcesso;
+import exe.gigi.menu.Output;
 
 public class Teste {
 

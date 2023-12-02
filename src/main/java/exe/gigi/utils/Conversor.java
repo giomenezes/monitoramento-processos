@@ -1,4 +1,4 @@
-package gigi.exe.utils;
+package exe.gigi.utils;
 
 public class Conversor {
     public static double converterGB (Long l) {
