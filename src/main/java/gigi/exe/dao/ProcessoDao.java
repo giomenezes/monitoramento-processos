@@ -14,13 +14,13 @@ import java.util.List;
 public class ProcessoDao {
     private static Database conexao = new Database();
     private static JdbcTemplate con = conexao.getConexao();
-    public static List<CapturaProcesso> listar(Servidor s) {
+    public static List<CapturaProcesso> listar() {
         return con.query("""
                 SELECT pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, data_registro FROM processo WHERE fk_servidor = %d;
-                """.formatted(s.getIdServidor()), new BeanPropertyRowMapper<>(CapturaProcesso.class));
+                """.formatted(Servidor.getIdServidor()), new BeanPropertyRowMapper<>(CapturaProcesso.class));
     }
-    public static void inserirProcesso(CapturaProcesso p, Servidor s) {
-        for (Processo processoAtual: p.getProcessos()) {
+    public static void inserirProcesso() {
+        for (Processo processoAtual: CapturaProcesso.getProcessos()) {
             Integer pid = processoAtual.getPid();
             String nome = processoAtual.getNome();
             double uso_cpu = processoAtual.getUsoCpu();
@@ -30,7 +30,7 @@ public class ProcessoDao {
 
             con.update("""
             INSERT INTO processo (pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, data_registro, fk_servidor) VALUES (%d, '%s',%f, %f, %f, %f, now(), %d);
-            """.formatted(pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, s.getIdServidor()));
+            """.formatted(pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, Servidor.getIdServidor()));
         }
     }
 }

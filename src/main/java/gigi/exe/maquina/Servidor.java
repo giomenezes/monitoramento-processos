@@ -1,61 +1,61 @@
 package gigi.exe.maquina;
 
 public class Servidor {
-    private Integer idServidor;
-    private String nome;
-    private String codigo;
-    private String descricao;
-    private String localizacao;
-    private Integer status;
+    private static Integer idServidor;
+    private static String nome;
+    private static String codigo;
+    private static String descricao;
+    private static String localizacao;
+    private static Integer status;
 
     public Servidor() {}
 
-    public Integer getIdServidor() {
+    public static Integer getIdServidor() {
         return idServidor;
     }
 
-    public void setIdServidor(Integer idServidor) {
-        this.idServidor = idServidor;
-    }
-
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCodigo() {
+    public static String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getDescricao() {
+    public static String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getLocalizacao() {
+    public static String getLocalizacao() {
         return localizacao;
     }
 
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
-
-    public Integer getStatus() {
+    public static Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public static void setIdServidor(Integer idServidor) {
+        Servidor.idServidor = idServidor;
+    }
+
+    public static void setNome(String nome) {
+        Servidor.nome = nome;
+    }
+
+    public static void setCodigo(String codigo) {
+        Servidor.codigo = codigo;
+    }
+
+    public static void setDescricao(String descricao) {
+        Servidor.descricao = descricao;
+    }
+
+    public static void setLocalizacao(String localizacao) {
+        Servidor.localizacao = localizacao;
+    }
+
+    public static void setStatus(Integer status) {
+        Servidor.status = status;
     }
 
     @Override

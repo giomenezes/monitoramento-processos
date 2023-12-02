@@ -8,6 +8,7 @@ import gigi.exe.maquina.Servidor;
 import gigi.exe.utils.Conversor;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Output {
     public static void limparConsole() {
@@ -15,14 +16,12 @@ public class Output {
     }
 
     public static Servidor escolherServidor() {
-        ServidorDao servidorDao = new ServidorDao();
-
-        List<Servidor> servidores = servidorDao.listar();
+        List<Servidor> servidores = ServidorDao.listar();
         System.out.println("Lista de servidores: \n" + servidores);
 
         String codigoServidor = Input.solicitarOpcaoString();
         for (Servidor servidorDaVez : servidores) {
-            if (servidorDaVez.getCodigo().equalsIgnoreCase(codigoServidor)){
+            if (Servidor.getCodigo().equalsIgnoreCase(codigoServidor)){
                 return servidorDaVez;
             }
         }
@@ -56,28 +55,27 @@ public class Output {
     public static void mostrarProcessos(){
         Output.limparConsole();
 
-        CapturaProcesso p = new CapturaProcesso();
-        for (Processo processoAtual : p.getProcessos()) {
+        for (Processo processoAtual : CapturaProcesso.getProcessos()) {
 
-            System.out.println("""
-               
-                    +------------------------------------------------------+
-                      Processo: %d
-                      Nome: %s            
-                    +------------------------------------------------------+
-                      Uso de CPU: %f                     
-                      Uso de memória: %f
-                      
-                      Bytes utilizados: %f
-                      Swap utilizada: %f
-                    +------------------------------------------------------+
-                    """.formatted(processoAtual.getPid(), processoAtual.getNome(), processoAtual.getUsoCpu(),
-                    processoAtual.getUsoMemoria(), Conversor.converterGB(processoAtual.getBytesUtilizados()), Conversor.converterGB(processoAtual.getMemoriaVirtualUtilizada())));
+            System.out.printf("""
+                                        
+                            +------------------------------------------------------+
+                              Processo: %d
+                              Nome: %s
+                            +------------------------------------------------------+
+                              Uso de CPU: %f
+                              Uso de memória: %f
+                                        
+                              Bytes utilizados: %f
+                              Swap utilizada: %f
+                            +------------------------------------------------------+
+                            %n""", processoAtual.getPid(), processoAtual.getNome(), processoAtual.getUsoCpu(),
+            processoAtual.getUsoMemoria(), Conversor.converterGB(processoAtual.getBytesUtilizados()), Conversor.converterGB(processoAtual.getMemoriaVirtualUtilizada()));
         }
     }
 
-    public static List<CapturaProcesso> verificarProcessos(Servidor s) {
-        List<CapturaProcesso> capturaProcessos = ProcessoDao.listar(s);
+    public static List<CapturaProcesso> verificarProcessos() {
+        List<CapturaProcesso> capturaProcessos = ProcessoDao.listar();
 
         if (capturaProcessos.isEmpty()) {
             System.out.println("A lista de processos está vazia!");
@@ -87,24 +85,22 @@ public class Output {
         }
     }
 
-    public static void getTotalProcessos(Servidor s) {
+    public static void getTotalProcessos() {
         Output.limparConsole();
-        CapturaProcesso p = new CapturaProcesso();
 
-        if (!verificarProcessos(s).isEmpty()) {
-            Integer totalProcessos = p.getTotalProcessos();
+        if (!Objects.requireNonNull(verificarProcessos()).isEmpty()) {
+            Integer totalProcessos = CapturaProcesso.getTotalProcessos();
             System.out.println("Total de processos: " + totalProcessos);
         } else {
             System.out.println("A lista de processos está vazia!");
         }
     }
 
-    public static void getTotalThreads(Servidor s) {
+    public static void getTotalThreads() {
         Output.limparConsole();
-        CapturaProcesso p = new CapturaProcesso();
 
-        if (!verificarProcessos(s).isEmpty()) {
-            Integer totalThreads = p.getTotalThreads();
+        if (!Objects.requireNonNull(verificarProcessos()).isEmpty()) {
+            Integer totalThreads = CapturaProcesso.getTotalThreads();
             System.out.println("Total de threads: " + totalThreads);
         } else {
             System.out.println("A lista de capturaProcessos está vazia!");

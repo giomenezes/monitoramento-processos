@@ -9,18 +9,18 @@ import java.util.List;
 
 public class CapturaProcesso {
 
-    private Looca looca = new Looca();
+    private static Looca looca = new Looca();
 
-    public List<Processo> getProcessos(){
+    public static List<Processo> getProcessos(){
         return looca.getGrupoDeProcessos().getProcessos();
     }
 
-    public Integer getTotalProcessos(){
+    public static Integer getTotalProcessos(){
 
         return looca.getGrupoDeProcessos().getTotalProcessos();
     }
 
-    public Integer getTotalThreads(){
+    public static Integer getTotalThreads(){
 
         return looca.getGrupoDeProcessos().getTotalThreads();
     }
