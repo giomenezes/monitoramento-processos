@@ -9,9 +9,10 @@ public class Database {
     public Database() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/gct_individual");
-        dataSource.setUsername("aluno");
-        dataSource.setPassword("sptech");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/gct_individual");
+        dataSource.setUrl("jdbc:mysql://mysql:3306/gct_individual");
+        dataSource.setUsername("root");
+        dataSource.setPassword("urubu100");
 
         this.conexao = new JdbcTemplate(dataSource);
     }
