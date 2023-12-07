@@ -3,10 +3,10 @@ package exe.gigi.conexao;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class Database {
+public class MySQL {
     private JdbcTemplate conexao;
 
-    public Database() {
+    public MySQL() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 //        dataSource.setUrl("jdbc:mysql://localhost:3306/gct_individual");

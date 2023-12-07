@@ -6,7 +6,7 @@
 
     <groupId>gigi.exe</groupId>
     <artifactId>monitoramento-processos</artifactId>
-    <version>1.0.5</version>
+    <version>2.1.1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -69,11 +69,18 @@
             <artifactId>looca-api</artifactId>
             <version>2.2.0</version>
         </dependency>
+        <!--dependência de anotações-->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+        <!--dependência do sql server-->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.4.2.jre11</version>
         </dependency>
     </dependencies>
 

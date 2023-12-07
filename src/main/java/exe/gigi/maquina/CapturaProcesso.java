@@ -16,12 +16,10 @@ public class CapturaProcesso {
     }
 
     public static Integer getTotalProcessos(){
-
         return looca.getGrupoDeProcessos().getTotalProcessos();
     }
 
     public static Integer getTotalThreads(){
-
         return looca.getGrupoDeProcessos().getTotalThreads();
     }
 }
