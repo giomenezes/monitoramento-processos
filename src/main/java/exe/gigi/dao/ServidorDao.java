@@ -9,10 +9,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 public class ServidorDao {
-//    private static MySQL conexaoMySQL = new MySQL();
+    private static MySQL conexaoMySQL = new MySQL();
     private static SQLServer conexaoSQL = new SQLServer();
 
-//    private static JdbcTemplate conMySQL = conexaoSQL.getConexao();
+    private static JdbcTemplate conMySQL = conexaoMySQL.getConexao();
     private static JdbcTemplate conSQL = conexaoSQL.getConexao();
 
     public static List<Servidor> listar() {

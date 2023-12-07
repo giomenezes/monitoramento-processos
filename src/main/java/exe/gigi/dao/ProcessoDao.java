@@ -12,9 +12,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 public class ProcessoDao {
-//    private static MySQL conexaoMySQL = new MySQL();
+    private static MySQL conexaoMySQL = new MySQL();
     private static SQLServer conexaoSQL= new SQLServer();
-//    private static JdbcTemplate conMySQL = conexaoMySQL.getConexao();
+    private static JdbcTemplate conMySQL = conexaoMySQL.getConexao();
     private static JdbcTemplate conSQL = conexaoSQL.getConexao();
     private static Servidor servidor = null;
     public static List<CapturaProcesso> listar(Servidor s) {
@@ -30,6 +30,9 @@ public class ProcessoDao {
             double uso_memoria = processoAtual.getUsoMemoria();
             double bytes_utilizados = Conversor.converterGB(processoAtual.getBytesUtilizados());
             double swap_utilizada = Conversor.converterGB(processoAtual.getMemoriaVirtualUtilizada());
+
+//        data MySQL = NOW()
+//        data SQL = GETDATE()
 
             conSQL.update("""
             INSERT INTO processo (pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, data_registro, fk_servidor) VALUES (%d, '%s',%f, %f, %f, %f, GETDATE(), %d);
